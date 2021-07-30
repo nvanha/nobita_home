@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/nobita_home/static/css/main.ad56f31d.chunk.css",
-    "main.js": "/nobita_home/static/js/main.46c48ef9.chunk.js",
-    "main.js.map": "/nobita_home/static/js/main.46c48ef9.chunk.js.map",
+    "main.js": "/nobita_home/static/js/main.01f565f1.chunk.js",
+    "main.js.map": "/nobita_home/static/js/main.01f565f1.chunk.js.map",
     "runtime-main.js": "/nobita_home/static/js/runtime-main.45cffede.js",
     "runtime-main.js.map": "/nobita_home/static/js/runtime-main.45cffede.js.map",
-    "static/js/2.3686f42f.chunk.js": "/nobita_home/static/js/2.3686f42f.chunk.js",
-    "static/js/2.3686f42f.chunk.js.map": "/nobita_home/static/js/2.3686f42f.chunk.js.map",
+    "static/js/2.d395f098.chunk.js": "/nobita_home/static/js/2.d395f098.chunk.js",
+    "static/js/2.d395f098.chunk.js.map": "/nobita_home/static/js/2.d395f098.chunk.js.map",
     "static/js/3.8bed9470.chunk.js": "/nobita_home/static/js/3.8bed9470.chunk.js",
     "static/js/3.8bed9470.chunk.js.map": "/nobita_home/static/js/3.8bed9470.chunk.js.map",
     "index.html": "/nobita_home/index.html",
     "static/css/main.ad56f31d.chunk.css.map": "/nobita_home/static/css/main.ad56f31d.chunk.css.map",
-    "static/js/2.3686f42f.chunk.js.LICENSE.txt": "/nobita_home/static/js/2.3686f42f.chunk.js.LICENSE.txt",
+    "static/js/2.d395f098.chunk.js.LICENSE.txt": "/nobita_home/static/js/2.d395f098.chunk.js.LICENSE.txt",
     "static/media/boxicons.min.css": "/nobita_home/static/media/boxicons.cbd149c5.ttf",
     "static/media/logo.ab3eafb0.png": "/nobita_home/static/media/logo.ab3eafb0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.45cffede.js",
-    "static/js/2.3686f42f.chunk.js",
+    "static/js/2.d395f098.chunk.js",
     "static/css/main.ad56f31d.chunk.css",
-    "static/js/main.46c48ef9.chunk.js"
+    "static/js/main.01f565f1.chunk.js"
   ]
 }
