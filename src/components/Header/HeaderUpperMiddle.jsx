@@ -1,49 +1,12 @@
 import React, { useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Button from "./../Button/Button";
 
 import logo from "./../../assets/images/logo/logo.png";
 
 import * as Config from "./../../constants/Config";
-
-const mainNav = [
-  {
-    display: "Trang chủ",
-    path: `/${Config.HOME_PAGE}`,
-    svgIcon: false,
-  },
-  {
-    display: "Áo",
-    path: `/${Config.HOME_PAGE}/collections/ao`,
-    svgIcon: true,
-  },
-  {
-    display: "Quần",
-    path: `/${Config.HOME_PAGE}/collections/quan`,
-    svgIcon: true,
-  },
-  {
-    display: "Phụ kiện",
-    path: `/${Config.HOME_PAGE}/collections/phu-kien`,
-    svgIcon: true,
-  },
-  {
-    display: "Sportwear",
-    path: `/${Config.HOME_PAGE}/collections/sportwear`,
-    svgIcon: true,
-  },
-  {
-    display: "Thông tin",
-    path: `/${Config.HOME_PAGE}`,
-    svgIcon: true,
-  },
-  {
-    display: "Giảm giá",
-    path: `/${Config.HOME_PAGE}`,
-    svgIcon: false,
-  },
-];
 
 const phone = [
   {
@@ -63,7 +26,9 @@ const email = [
   },
 ];
 
-const Header = () => {
+const HeaderUpperMiddle = (props) => {
+  const { mainNav } = props;
+
   const dropdownSearchRef = useRef(null);
   const dropdownAccountRef = useRef(null);
   const dropdownCartRef = useRef(null);
@@ -119,9 +84,6 @@ const Header = () => {
         return;
     }
   };
-
-  const { pathname } = useLocation();
-  console.log(pathname);
 
   return (
     <div className="header-upper-middle">
@@ -477,4 +439,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+HeaderUpperMiddle.propsTypes = {
+  mainNav: PropTypes.array.isRequired,
+};
+
+export default HeaderUpperMiddle;

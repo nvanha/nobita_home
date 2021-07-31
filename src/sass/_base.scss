@@ -11,6 +11,11 @@ html {
   -webkit-box-sizing: border-box;
 }
 
+:focus,
+:hover {
+  outline: 0;
+}
+
 a {
   text-decoration: none;
 }
