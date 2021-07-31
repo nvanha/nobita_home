@@ -11,9 +11,12 @@ html {
   -webkit-box-sizing: border-box;
 }
 
-:focus,
-:hover {
+*:focus,
+*:hover {
   outline: 0;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 a {
@@ -30,7 +33,10 @@ body {
 }
 
 .container {
-  margin-top: 200px;
+  padding: 100px 20px;
+  @include responsive(991px) {
+    margin-top: 152px;
+  }
 }
 
 .none-el {

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 
 import "./sass/reset.css";
+import "./assets/font-awesome-4.7.0/css/font-awesome.min.css";
 import "./assets/boxicons-2.0.7/css/boxicons.min.css";
 import "./sass/index.scss";
 
