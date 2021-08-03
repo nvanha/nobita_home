@@ -393,8 +393,7 @@
                         color: #252a2b;
                         text-transform: uppercase;
 
-                        &:hover,
-                        &:focus {
+                        &:hover {
                           color: #cfb997;
                           outline: none;
                         }
@@ -424,8 +423,7 @@
                       line-height: 1.9rem;
                       transition: color 0.25s linear;
 
-                      &:hover,
-                      &:focus {
+                      &:hover {
                         color: #cfb997;
                         outline: none;
                       }
@@ -692,8 +690,7 @@
                           line-height: 1.9rem;
                           color: #252a2b;
 
-                          &:hover,
-                          &:focus {
+                          &:hover {
                             color: #cfb997;
                             outline: none;
                           }
@@ -733,8 +730,7 @@
                       }
                     }
 
-                    &:hover,
-                    &:focus {
+                    &:hover {
                       color: #cfb997;
 
                       i {
@@ -837,7 +833,6 @@
               transition: background 150ms linear;
             }
 
-            &:focus,
             &:hover {
               color: #cfb997;
 

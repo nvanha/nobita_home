@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import * as Config from "./../../constants/Config";
+
 import logo_bct from "./../../assets/images/logo/logo_bct.png";
 
 const Footer = () => {
@@ -18,18 +20,18 @@ const Footer = () => {
                     kiện thời trang nam.
                   </p>
                   <div className="logo-footer">
-                    <Link to="/">
+                    <Link to={`/${Config.HOME_PAGE}`}>
                       <img src={logo_bct} alt="Logo bộ công thường" />
                     </Link>
                   </div>
                   <ul className="footerNav-social">
                     <li>
-                      <Link to="/">
+                      <Link to={`/${Config.HOME_PAGE}`}>
                         <i className="bx bxl-facebook"></i>
                       </Link>
                     </li>
                     <li>
-                      <Link to="/">
+                      <Link to={`/${Config.HOME_PAGE}`}>
                         <i className="bx bxl-instagram"></i>
                       </Link>
                     </li>
@@ -75,10 +77,10 @@ const Footer = () => {
                 <div className="footer-content">
                   <ul className="footerNav-support">
                     <li className="item">
-                      <Link to="/">Tìm kiếm</Link>
+                      <Link to={`/${Config.HOME_PAGE}`}>Tìm kiếm</Link>
                     </li>
                     <li className="item">
-                      <Link to="/">Giới thiệu</Link>
+                      <Link to={`/${Config.HOME_PAGE}`}>Giới thiệu</Link>
                     </li>
                   </ul>
                 </div>
@@ -91,7 +93,8 @@ const Footer = () => {
       <div className="bottom-footer">
         <div className="container-footer">
           <p className="footer-copyright">
-            Copyright © 2021 <Link to="/">Nobita Home</Link>.
+            Copyright © 2021{" "}
+            <Link to={`/${Config.HOME_PAGE}`}>Nobita Home</Link>.
           </p>
         </div>
       </div>

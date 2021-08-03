@@ -9,14 +9,14 @@ html {
 *:after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
-}
 
-*:focus,
-*:hover {
-  outline: 0;
-  outline: none;
-  appearance: none;
-  -webkit-appearance: none;
+  &:focus,
+  &:hover {
+    outline: 0 !important;
+    outline: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
 }
 
 a {
@@ -32,8 +32,11 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-.container {
-  padding: 100px 20px;
+.main {
+  position: relative;
+  z-index: 99;
+  min-height: 80vh;
+
   @include responsive(991px) {
     margin-top: 152px;
   }

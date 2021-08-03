@@ -123,8 +123,7 @@
                   border-radius: 4px;
                   transition: all 0.4s linear;
 
-                  &:hover,
-                  &:focus {
+                  &:hover {
                     color: #cfb997;
                     border-color: #cfb997;
                   }
@@ -173,8 +172,7 @@
                   font-weight: 400;
                   transition: color 150ms linear;
 
-                  &:hover,
-                  &:focus {
+                  &:hover {
                     color: #cfb997;
                     outline: none;
                   }
@@ -204,8 +202,7 @@
         display: inline-block;
         transition: color 150ms linear;
 
-        &:hover,
-        &:focus {
+        &:hover {
           color: #cfb997;
           outline: none;
         }

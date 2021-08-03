@@ -324,7 +324,9 @@ const HeaderUpperMiddle = (props) => {
                               apply.
                             </div>
                           </div>
-                          <Button>Đăng nhập</Button>
+                          <Link to={`/${Config.HOME_PAGE}`}>
+                            <Button>Đăng nhập</Button>
+                          </Link>
                         </form>
                         <div className="site_account_secondary-action">
                           <p>
