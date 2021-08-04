@@ -45,3 +45,21 @@ body {
 .none-el {
   display: none !important;
 }
+
+.container {
+  max-width: 1600px;
+  padding: 0 85px;
+  margin: 0 auto;
+
+  @include responsive(1199px) {
+    padding: 0 15px;
+  }
+
+  @include responsive(1023px) {
+    padding: 0 30px;
+  }
+
+  @include responsive(767px) {
+    padding: 0 15px;
+  }
+}

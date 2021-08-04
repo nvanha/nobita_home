@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+}
+
+@each $val in $numbers {
+  .grid-col-#{$val} {
+    grid-template-columns: repeat($val, 1fr);
+  }
+}
+
+@each $val in $numbers {
+  .grid-col-md-#{$val} {
+    @include responsive(1023px) {
+      grid-template-columns: repeat($val, 1fr);
+    }
+  }
+}
+
+@each $val in $numbers {
+  .grid-col-sm-#{$val} {
+    @include responsive(991px) {
+      grid-template-columns: repeat($val, 1fr);
+    }
+  }
+}

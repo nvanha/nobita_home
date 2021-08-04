@@ -1,0 +1,27 @@
+.section {
+}
+
+.section__title {
+  padding: 50px 0;
+  text-align: center;
+
+  h2 {
+    font-size: 37px;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #a0816c;
+    cursor: pointer;
+    transition: color 150ms linear;
+
+    &:hover {
+      color: #cfb997;
+    }
+
+    @include responsive(767px) {
+      font-size: 28px;
+    }
+  }
+}
+
+.section__body {
+}
