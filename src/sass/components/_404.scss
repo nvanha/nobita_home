@@ -1,0 +1,50 @@
+.pageNot {
+  min-height: 80vh;
+  @include flex(center);
+}
+
+.content-pagenot {
+  width: 100%;
+  padding: 0 15px;
+  text-align: center;
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #a0816c;
+    margin-bottom: 1.3rem;
+    line-height: 1.2;
+  }
+
+  .subtext {
+    font-weight: 500;
+    opacity: 0.66;
+    margin-bottom: 1rem;
+    line-height: 21px;
+    font-size: 1.4rem;
+    color: #252a2b;
+  }
+
+  a {
+    font-weight: 500;
+    margin-top: 3rem;
+    line-height: 2.2rem;
+    font-size: 1.6rem;
+    color: #252a2b;
+    display: inline-block;
+    transition: color 150ms linear;
+
+    &:hover {
+      color: #cfb997;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    background-color: #252a2b;
+    width: 80px;
+    height: 4px;
+    margin: 50px auto 0;
+  }
+}

@@ -11,11 +11,12 @@ html {
   -webkit-box-sizing: border-box;
 
   &:focus,
-  &:hover {
-    outline: 0 !important;
+  &:hover,
+  &:visited {
     outline: none !important;
-    appearance: none !important;
+    outline: 0 !important;
     -webkit-appearance: none !important;
+    appearance: none !important;
   }
 }
 
