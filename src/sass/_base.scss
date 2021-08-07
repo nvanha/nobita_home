@@ -9,6 +9,7 @@ html {
 *:after {
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 
   &:focus,
   &:hover,
@@ -17,6 +18,7 @@ html {
     outline: 0 !important;
     -webkit-appearance: none !important;
     appearance: none !important;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -60,7 +62,7 @@ body {
     padding: 0 30px;
   }
 
-  @include responsive(767px) {
+  @include responsive(991px) {
     padding: 0 15px;
   }
 }

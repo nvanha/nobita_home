@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import * as Actions from "./../actions/index";
 
 import Helmet from "./../components/Helmet/Helmet";
 import Slider from "./../components/Slider/Slider";
@@ -10,11 +13,17 @@ import Grid from "./../components/Grid/Grid";
 import ProductCard from "./../components/ProductCard/ProductCard";
 
 import sliderData from "./../assets/fake-data/slider";
-import productData from "../assets/fake-data/products";
 
 const HomePage = () => {
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(Actions.actGetProducts(10));
+  }, [dispatch]);
+
   return (
-    <Helmet title="Home">
+    <Helmet>
       {/* Slider */}
       <Slider data={sliderData} />
       {/* End Slider */}
@@ -27,7 +36,7 @@ const HomePage = () => {
         <SectionBody>
           <div className="container">
             <Grid col={5} mdCol={3} smCol={2} gap={20}>
-              {productData.getProducts(10).map((product, index) => (
+              {products.map((product, index) => (
                 <ProductCard
                   key={index}
                   image01={product.image01}

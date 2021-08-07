@@ -1,0 +1,208 @@
+.breadcrumb-shop {
+  background-color: #f5f5f5;
+
+  @include responsive(767px) {
+    background-color: #fff;
+  }
+
+  .breadcrumb-list {
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 10px 15px;
+    @include flex(center);
+
+    @include responsive(767px) {
+      padding: 10px 15px 5px;
+    }
+  }
+
+  .breadcrumb-item {
+    font-size: 1.3rem;
+    line-height: 1.9rem;
+    @include flex(center);
+
+    @include responsive(767px) {
+      font-size: 1rem;
+    }
+
+    &.active > a {
+      color: #777;
+      pointer-events: none;
+    }
+
+    a {
+      color: #252a2b;
+      display: inline-block;
+      transition: color 150ms linear;
+
+      &:hover {
+        color: #cfb997;
+      }
+    }
+
+    &:not(:first-child) {
+      &:before {
+        content: "/\00a0";
+        display: inline-block;
+        font-family: "FontAwesome";
+        color: #ccc;
+        padding-right: 4px;
+        padding-left: 5.57px;
+        font-size: 1.958rem;
+      }
+    }
+  }
+}
+
+.main-content {
+  .collection-body {
+    margin-right: -15px;
+    margin-left: -15px;
+    position: relative;
+    @include flex();
+
+    @include responsive(991px) {
+      flex-direction: column;
+    }
+  }
+
+  .collection__sidebar {
+    position: sticky;
+    width: 25%;
+    top: 50px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+
+    @include responsive(991px) {
+      width: 100%;
+      margin: 0;
+      margin-top: 20px;
+    }
+
+    &__title {
+      display: none;
+
+      @include responsive(991px) {
+        display: block;
+        padding: 8px 15px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: #f5f5f5;
+        font-weight: 700;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        color: #252a2b;
+        line-height: 1.9rem;
+        cursor: pointer;
+
+        i {
+          display: block;
+          top: 8px;
+          right: 10px;
+          position: absolute;
+          line-height: 1.9rem;
+        }
+      }
+    }
+
+    &__list {
+      overflow-x: hidden;
+      overflow-y: auto;
+      margin-bottom: 10px;
+
+      @include responsive(991px) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 550ms ease-out;
+
+        &.show {
+          max-height: 216px;
+          transition: max-height 450ms ease-in;
+        }
+      }
+
+      &__item {
+        &-svgIcon {
+          a {
+            line-height: 2.8rem !important;
+
+            i {
+              display: none !important;
+            }
+          }
+        }
+
+        a {
+          color: #252a2b;
+          font-weight: 500;
+          font-size: 1.4rem;
+          line-height: 3rem;
+          letter-spacing: 1px;
+          padding: 5px 5px 5px 0;
+          transition: color 150ms linear;
+
+          &:hover {
+            color: #cfb997;
+          }
+
+          i {
+            font-size: 8px;
+            position: relative;
+            margin-left: 10px;
+            top: -2px;
+          }
+        }
+      }
+    }
+  }
+
+  .collection__content {
+    width: 75%;
+    padding: 0 15px;
+
+    @include responsive(991px) {
+      width: 100%;
+    }
+
+    .collection__content__heading {
+      @include flex(center, space-between);
+      margin: 50px -15px;
+
+      .collection__title {
+        width: calc(100% - 100% / 3);
+        padding: 0 15px;
+        font-size: 2.4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #a0816c;
+      }
+
+      .collection__filter {
+        width: calc(100% / 3);
+        padding: 0 15px;
+
+        select {
+          float: right;
+          font-size: 14px;
+          width: 144px;
+          display: block;
+          height: 30px;
+          padding: 0 20px 0 0;
+          border-color: transparent;
+          border-bottom: 1px solid #000;
+          background-color: #fff;
+          outline: 0;
+          border-radius: 0;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+          cursor: pointer;
+          text-indent: 1px;
+          color: #252a2b;
+          font-family: "Quicksand", sans-serif;
+        }
+      }
+    }
+  }
+}

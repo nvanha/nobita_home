@@ -795,6 +795,18 @@
         @include flex(center, center);
 
         &--item {
+          &.active > a {
+            color: #cfb997;
+
+            &:before {
+              background-color: #cfb997;
+            }
+
+            i {
+              color: #cfb997;
+            }
+          }
+
           a {
             color: #252a25;
             display: block;
