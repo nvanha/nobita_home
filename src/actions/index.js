@@ -7,8 +7,19 @@ export const actGetAllProducts = () => ({
   products: productData,
 });
 
-export const actGetProducts = (quantity) => ({
-  type: Types.GET_PRODUCTS,
+export const actGetProductsByQuantity = (quantity) => ({
+  type: Types.GET_PRODUCTS_BY_QUANTITY,
   products: productData,
   quantity,
+});
+
+export const actGetProductsByCategory = (categorySlug) => ({
+  type: Types.GET_PRODUCTS_BY_CATEGORY,
+  products: productData,
+  categorySlug,
+});
+
+export const actFilterProducts = (keyword) => ({
+  type: Types.FILTER_PRODUCTS,
+  keyword,
 });

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -66,15 +66,41 @@ const CollectionsPage = (props) => {
     }
   };
 
+  const dropdownSideBar = useRef(null);
+  const sidebarToggle = () => dropdownSideBar.current.classList.toggle("show");
+
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(Actions.actGetAllProducts());
-  }, [dispatch]);
+  const [filter, setFilter] = useState("nameAsc");
 
-  const dropdownSideBar = useRef(null);
-  const sidebarToggle = () => dropdownSideBar.current.classList.toggle("show");
+  const onChangeFilter = (event) => {
+    const target = event.target;
+    const value = target.value;
+    setFilter(value);
+  };
+
+  useEffect(() => {
+    const { slug } = props.match.params;
+
+    switch (slug) {
+      case "all":
+        dispatch(Actions.actGetAllProducts());
+        break;
+      default:
+        dispatch(Actions.actGetProductsByCategory(slug));
+        break;
+    }
+
+    setFilter("nameAsc");
+    dispatch(Actions.actFilterProducts("nameAsc"));
+  }, [props.match.params, dispatch]);
+
+  useEffect(() => {
+    if (filter !== "") {
+      dispatch(Actions.actFilterProducts(filter));
+    }
+  }, [dispatch, filter]);
 
   return (
     <Helmet title={titleHelmet()}>
@@ -89,7 +115,7 @@ const CollectionsPage = (props) => {
               <Link to={`/${Config.HOME_PAGE}/collections/all`}>Danh mục</Link>
             </div>
             <div className="breadcrumb-item active">
-              <Link to="">Tất cả sản phẩm</Link>
+              <Link to="">{titleHelmet()}</Link>
             </div>
           </nav>
         </div>
@@ -132,11 +158,15 @@ const CollectionsPage = (props) => {
 
                 <div className="collection__filter">
                   <span className="custom-dropdown">
-                    <select name="" id="">
-                      <option value="a">Tên: A-Z</option>
-                      <option value="a">Tên: Z-A</option>
-                      <option value="a">Giá: Tăng dần</option>
-                      <option value="a">Giá: Giảm dần</option>
+                    <select
+                      name="filter"
+                      value={filter}
+                      onChange={onChangeFilter}
+                    >
+                      <option value="nameAsc">Tên: A-Z</option>
+                      <option value="nameDesc">Tên: Z-A</option>
+                      <option value="priceAsc">Giá: Tăng dần</option>
+                      <option value="priceDesc">Giá: Giảm dần</option>
                     </select>
                   </span>
                 </div>
@@ -144,19 +174,16 @@ const CollectionsPage = (props) => {
 
               <div className="collection__content__list">
                 <Grid col={4} mdCol={3} smCol={2} gap={20}>
-                  {products.map((item, index) => {
-                    console.log(index, item);
-                    return (
-                      <ProductCard
-                        key={index}
-                        image01={item.image01}
-                        image02={item.image02}
-                        name={item.name}
-                        price={item.price}
-                        slug={item.slug}
-                      />
-                    );
-                  })}
+                  {products.map((item, index) => (
+                    <ProductCard
+                      key={index}
+                      image01={item.image01}
+                      image02={item.image02}
+                      name={item.name}
+                      price={item.price}
+                      slug={item.slug}
+                    />
+                  ))}
                 </Grid>
               </div>
             </div>

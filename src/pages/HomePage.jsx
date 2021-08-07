@@ -19,7 +19,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(Actions.actGetProducts(10));
+    dispatch(Actions.actGetProductsByQuantity(10));
   }, [dispatch]);
 
   return (
