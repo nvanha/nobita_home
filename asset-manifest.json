@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/nobita_home/static/css/main.e26df845.chunk.css",
-    "main.js": "/nobita_home/static/js/main.6c330139.chunk.js",
-    "main.js.map": "/nobita_home/static/js/main.6c330139.chunk.js.map",
+    "main.css": "/nobita_home/static/css/main.0b7b4365.chunk.css",
+    "main.js": "/nobita_home/static/js/main.26f12ab8.chunk.js",
+    "main.js.map": "/nobita_home/static/js/main.26f12ab8.chunk.js.map",
     "runtime-main.js": "/nobita_home/static/js/runtime-main.e01d8769.js",
     "runtime-main.js.map": "/nobita_home/static/js/runtime-main.e01d8769.js.map",
     "static/js/2.748877e8.chunk.js": "/nobita_home/static/js/2.748877e8.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.b8573598.chunk.js": "/nobita_home/static/js/3.b8573598.chunk.js",
     "static/js/3.b8573598.chunk.js.map": "/nobita_home/static/js/3.b8573598.chunk.js.map",
     "index.html": "/nobita_home/index.html",
-    "static/css/main.e26df845.chunk.css.map": "/nobita_home/static/css/main.e26df845.chunk.css.map",
+    "static/css/main.0b7b4365.chunk.css.map": "/nobita_home/static/css/main.0b7b4365.chunk.css.map",
     "static/js/2.748877e8.chunk.js.LICENSE.txt": "/nobita_home/static/js/2.748877e8.chunk.js.LICENSE.txt",
     "static/media/boxicons.min.css": "/nobita_home/static/media/boxicons.cbd149c5.ttf",
     "static/media/font-awesome.min.css": "/nobita_home/static/media/fontawesome-webfont.f691f37e.woff",
@@ -45,7 +45,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d8769.js",
     "static/js/2.748877e8.chunk.js",
-    "static/css/main.e26df845.chunk.css",
-    "static/js/main.6c330139.chunk.js"
+    "static/css/main.0b7b4365.chunk.css",
+    "static/js/main.26f12ab8.chunk.js"
   ]
 }
