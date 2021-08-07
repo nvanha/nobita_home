@@ -62,7 +62,7 @@
     @include flex();
 
     @include responsive(991px) {
-      flex-direction: column;
+      flex-wrap: wrap;
     }
   }
 
@@ -78,6 +78,8 @@
       width: 100%;
       margin: 0;
       margin-top: 20px;
+      position: relative;
+      top: 0;
     }
 
     &__title {
@@ -114,11 +116,13 @@
       @include responsive(991px) {
         max-height: 0;
         overflow: hidden;
-        transition: max-height 550ms ease-out;
+        margin-bottom: 0;
+        transition: max-height 450ms ease-out;
 
         &.show {
           max-height: 216px;
-          transition: max-height 450ms ease-in;
+          margin-bottom: 10px;
+          transition: max-height 350ms ease-in;
         }
       }
 
@@ -165,43 +169,80 @@
       width: 100%;
     }
 
-    .collection__content__heading {
+    &__heading {
       @include flex(center, space-between);
       margin: 50px -15px;
 
+      @include responsive(991px) {
+        margin: 20px 0;
+      }
+
       .collection__title {
         width: calc(100% - 100% / 3);
-        padding: 0 15px;
         font-size: 2.4rem;
         font-weight: 700;
         line-height: 1.2;
         color: #a0816c;
+
+        @include responsive(991px) {
+          width: 100%;
+          font-size: 2rem;
+          text-align: center;
+        }
       }
 
       .collection__filter {
         width: calc(100% / 3);
-        padding: 0 15px;
 
-        select {
-          float: right;
-          font-size: 14px;
-          width: 144px;
-          display: block;
-          height: 30px;
-          padding: 0 20px 0 0;
-          border-color: transparent;
-          border-bottom: 1px solid #000;
-          background-color: #fff;
-          outline: 0;
-          border-radius: 0;
-          -moz-appearance: none;
-          -webkit-appearance: none;
-          appearance: none;
-          cursor: pointer;
-          text-indent: 1px;
-          color: #252a2b;
-          font-family: "Quicksand", sans-serif;
+        @include responsive(991px) {
+          display: none;
         }
+
+        .custom-dropdown {
+          width: auto;
+          float: right;
+          position: relative;
+
+          &:after {
+            content: "\f103";
+            font-family: "FontAwesome";
+            font-size: 1.4rem;
+            color: #000;
+            display: block;
+            position: absolute;
+            top: 9px;
+            right: 2px;
+            opacity: 0.42;
+            line-height: 1.9rem;
+          }
+
+          select {
+            width: 144px;
+            height: 30px;
+            display: block;
+            font-size: 14px;
+            font-family: "Quicksand", sans-serif;
+            color: #252a2b;
+            text-indent: 1px;
+            padding: 0 20px 0 0;
+            border-color: transparent;
+            border-bottom: 1px solid #000;
+            border-radius: 0;
+            background-color: #fff;
+            outline: 0;
+            appearance: none;
+            cursor: pointer;
+            position: relative;
+          }
+        }
+      }
+    }
+
+    &__list {
+      margin: 0 -15px;
+
+      @include responsive(991px) {
+        margin: 0;
       }
     }
   }

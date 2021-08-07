@@ -75,6 +75,7 @@ const CollectionsPage = (props) => {
 
   const dropdownSideBar = useRef(null);
   const sidebarToggle = () => dropdownSideBar.current.classList.toggle("show");
+
   return (
     <Helmet title={titleHelmet()}>
       {/* Breadcrumb-shop */}
@@ -88,7 +89,7 @@ const CollectionsPage = (props) => {
               <Link to={`/${Config.HOME_PAGE}/collections/all`}>Danh mục</Link>
             </div>
             <div className="breadcrumb-item active">
-              <Link>Tất cả sản phẩm</Link>
+              <Link to="">Tất cả sản phẩm</Link>
             </div>
           </nav>
         </div>
@@ -116,7 +117,7 @@ const CollectionsPage = (props) => {
                         : "collection__sidebar__list__item collection__sidebar__list__item-svgIcon"
                     }`}
                   >
-                    <Link to={item.path}>
+                    <Link to={item.path} onClick={sidebarToggle}>
                       {item.display}
                       <i className="fa fa-minus"></i>
                     </Link>
@@ -130,27 +131,32 @@ const CollectionsPage = (props) => {
                 <h2 className="collection__title">{titleHelmet()}</h2>
 
                 <div className="collection__filter">
-                  <select name="" id="">
-                    <option value="a">Tên: A-Z</option>
-                    <option value="a">Tên: Z-A</option>
-                    <option value="a">Giá: Tăng dần</option>
-                    <option value="a">Giá: Giảm dần</option>
-                  </select>
+                  <span className="custom-dropdown">
+                    <select name="" id="">
+                      <option value="a">Tên: A-Z</option>
+                      <option value="a">Tên: Z-A</option>
+                      <option value="a">Giá: Tăng dần</option>
+                      <option value="a">Giá: Giảm dần</option>
+                    </select>
+                  </span>
                 </div>
               </div>
 
-              <div className="collection__list">
+              <div className="collection__content__list">
                 <Grid col={4} mdCol={3} smCol={2} gap={20}>
-                  {products.map((item, index) => (
-                    <ProductCard
-                      key={index}
-                      image01={item.image01}
-                      image02={item.image02}
-                      name={item.name}
-                      price={item.price}
-                      slug={item.slug}
-                    />
-                  ))}
+                  {products.map((item, index) => {
+                    console.log(index, item);
+                    return (
+                      <ProductCard
+                        key={index}
+                        image01={item.image01}
+                        image02={item.image02}
+                        name={item.name}
+                        price={item.price}
+                        slug={item.slug}
+                      />
+                    );
+                  })}
                 </Grid>
               </div>
             </div>

@@ -10,7 +10,7 @@ const ProductCard = (props) => {
     <div className="product-card">
       <div className="product-card-inner">
         <div className="product-img">
-          <Link to={`${Config.HOME_PAGE}/products/${props.slug}`}>
+          <Link to={`/${Config.HOME_PAGE}/products/${props.slug}`}>
             <img src={props.image01} alt={props.name} />
             <img src={props.image02} alt={props.name} />
           </Link>
@@ -18,7 +18,7 @@ const ProductCard = (props) => {
 
         <div className="product-details">
           <h3 className="product-name">
-            <Link to={`${Config.HOME_PAGE}/products/${props.slug}`}>
+            <Link to={`/${Config.HOME_PAGE}/products/${props.slug}`}>
               {props.name}
             </Link>
           </h3>
