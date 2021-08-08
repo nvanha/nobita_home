@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import * as Actions from "./../actions/index";
 
+import Breadcrumb from "./../components/Breadcrumb/Breadcrumb";
 import Helmet from "./../components/Helmet/Helmet";
 import Grid from "./../components/Grid/Grid";
 import ProductCard from "./../components/ProductCard/ProductCard";
@@ -105,21 +106,7 @@ const CollectionsPage = (props) => {
   return (
     <Helmet title={titleHelmet()}>
       {/* Breadcrumb-shop */}
-      <div className="breadcrumb-shop">
-        <div className="container">
-          <nav className="breadcrumb-list">
-            <div className="breadcrumb-item">
-              <Link to={`/${Config.HOME_PAGE}`}>Trang chủ</Link>
-            </div>
-            <div className="breadcrumb-item">
-              <Link to={`/${Config.HOME_PAGE}/collections/all`}>Danh mục</Link>
-            </div>
-            <div className="breadcrumb-item active">
-              <Link to="">{titleHelmet()}</Link>
-            </div>
-          </nav>
-        </div>
-      </div>
+      <Breadcrumb breadcrumbRoot={"Danh mục"} breadcrumbChild={titleHelmet()} />
       {/* End Breadcrumb-shop */}
 
       <div className="main-content">

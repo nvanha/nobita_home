@@ -75,7 +75,7 @@ const products = [
     price: 195000,
     image01: product_04_image_01,
     image02: product_04_image_02,
-    slug: "sttn-extreme-tron-21036",
+    slug: "attn-extreme-tron-21036",
     categorySlug: "ao",
     description:
       "Chất liệu: 100% cotton<br />Độ dày: vừa phải<br />Mùa: hè<br />Form áo: thông thường<br />Mẫu cao 1m70 nặng 55kg mặc size S<br />Số đo sản phẩm (cm):<br />- S: ngực 104, dài áo 72<br />- M: ngực 108, dài áo 73<br />- L: ngực 112 dài áo 75<br />(Sai số cho phép 1-3cm).<br />Vui lòng tham khảo và so sánh với kích thước áo hoặc quần của bạn để chọn được size phù hợp nhất.",
