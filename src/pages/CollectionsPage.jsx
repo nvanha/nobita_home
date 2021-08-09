@@ -8,6 +8,7 @@ import Breadcrumb from "./../components/Breadcrumb/Breadcrumb";
 import Helmet from "./../components/Helmet/Helmet";
 import Grid from "./../components/Grid/Grid";
 import ProductCard from "./../components/ProductCard/ProductCard";
+import Pagination from "./../components/Pagination/Pagination";
 
 import * as Config from "./../constants/Config";
 
@@ -103,6 +104,34 @@ const CollectionsPage = (props) => {
     }
   }, [dispatch, filter]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(12);
+
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = products.slice(indexOfFirstPost, indexOfLastPost);
+
+  // Change page
+  const paginate = (pageNumber) => {
+    console.log(pageNumber);
+    if (pageNumber === "prev") {
+      setCurrentPage(currentPage === 1 ? currentPage : currentPage - 1);
+    } else if (pageNumber === "next") {
+      const temp = Math.ceil(products.length / postsPerPage);
+      setCurrentPage(currentPage === temp ? currentPage : currentPage + 1);
+    } else {
+      setCurrentPage(pageNumber);
+    }
+
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+    setPostsPerPage(12);
+  }, [products]);
+
   return (
     <Helmet title={titleHelmet()}>
       {/* Breadcrumb-shop */}
@@ -161,7 +190,7 @@ const CollectionsPage = (props) => {
 
               <div className="collection__content__list">
                 <Grid col={4} mdCol={3} smCol={2} gap={20}>
-                  {products.map((item, index) => (
+                  {currentPosts.map((item, index) => (
                     <ProductCard
                       key={index}
                       images={item.images}
@@ -171,6 +200,13 @@ const CollectionsPage = (props) => {
                     />
                   ))}
                 </Grid>
+
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  currentPage={currentPage}
+                  totalPosts={products.length}
+                  paginate={paginate}
+                />
               </div>
             </div>
           </div>

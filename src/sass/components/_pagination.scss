@@ -1,0 +1,61 @@
+.pagination {
+  &-wrapper {
+    text-align: center;
+    position: relative;
+    padding: 0 15px;
+
+    .page {
+      &-prev,
+      &-next,
+      &-node {
+        display: inline-block;
+        margin: 30px 8px;
+        font-size: 1.5rem;
+        font-weight: 600;
+        opacity: 0.4;
+        color: #252a2b;
+        transition: opacity 150ms linear, color 150ms linear;
+        line-height: 2.1rem;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      &-prev {
+        margin-right: 30px;
+        transform: rotate(180deg);
+
+        svg {
+          width: 31px;
+          height: 10px;
+        }
+      }
+
+      &-next {
+        margin-left: 30px;
+
+        svg {
+          width: 31px;
+          height: 10px;
+        }
+      }
+
+      &-node {
+        &.active {
+          opacity: 1;
+          pointer-events: none;
+        }
+
+        &:hover {
+          color: #cfb997;
+        }
+
+        &.none-active {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
