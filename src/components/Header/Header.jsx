@@ -40,7 +40,7 @@ const mainNav = [
   },
   {
     display: "Giảm giá",
-    path: `/404`,
+    path: `/${Config.HOME_PAGE}/404`,
     svgIcon: false,
   },
 ];

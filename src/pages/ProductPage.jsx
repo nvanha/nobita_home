@@ -13,23 +13,25 @@ import ProductCart from "./../components/ProductCard/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as Actions from "./../actions/index";
+import * as Config from "./../constants/Config";
 
 const ProductPage = (props) => {
   const product = useSelector((state) => state.productDetails);
+  const relateProducts = useSelector((state) => state.products);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     const { slug } = props.match.params;
-
     dispatch(Actions.actGetProductBySlug(slug));
+    dispatch(Actions.actGetProductsByQuantity(5));
   }, [dispatch, props]);
 
-  const relateProducts = useSelector((state) => state.products);
-
   useEffect(() => {
-    dispatch(Actions.actGetProductsByQuantity(5));
-  }, [dispatch]);
+    if (product === null) {
+      props.history.push(`/${Config.HOME_PAGE}/collections/all`);
+    }
+  }, [product, props]);
 
   return (
     <Helmet title={product.name}>

@@ -139,7 +139,7 @@ const products = [
     price: 170000,
     image01: product_09_image_01,
     image02: product_09_image_02,
-    slug: "shorts-kaki-1/2-lung-thun-tui-nap",
+    slug: "shorts-kaki-1-2-lung-thun-tui-nap",
     categorySlug: "quan",
     description:
       "Mẫu cao 1m70 nặng 55kg mặc size S<br />Số đo sản phẩm (cm):<br /-  S: eo 72-76, mông 104, dài 46, ống quần 50<br /-  M: eo 76-80, mông 108, dài 48, ống quần 52<br /-  L: eo 80-84, mông 110, dài 100, ống quần 54<br />-  XL: eo 82-86, mông 112, dài 102, ống quần 56<br /(Sai số cho phép 1-3cm).<br /Vui lòng tham khảo và so sánh với kích thước áo hoặc quần của bạn để chọn được size phù hợp nhất.",
