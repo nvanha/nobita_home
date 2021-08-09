@@ -39,12 +39,12 @@ const sideBar = [
   },
   {
     display: "Thông tin",
-    path: `/${Config.HOME_PAGE}`,
+    path: `/${Config.HOME_PAGE}/404`,
     svgIcon: true,
   },
   {
     display: "Giảm giá",
-    path: `/404`,
+    path: `/${Config.HOME_PAGE}/404`,
     svgIcon: false,
   },
 ];
@@ -164,8 +164,7 @@ const CollectionsPage = (props) => {
                   {products.map((item, index) => (
                     <ProductCard
                       key={index}
-                      image01={item.image01}
-                      image02={item.image02}
+                      images={item.images}
                       name={item.name}
                       price={item.price}
                       slug={item.slug}

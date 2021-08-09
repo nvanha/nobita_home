@@ -6,7 +6,7 @@ import Button from "./../Button/Button";
 const ProductView = (props) => {
   const { product } = props;
 
-  const [productImgMobile, setProductImgMobile] = useState(product.image01);
+  const [productImgMobile, setProductImgMobile] = useState(product.images[0]);
 
   const [color, setColor] = useState(product.colors[0]);
 
@@ -15,7 +15,7 @@ const ProductView = (props) => {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    setProductImgMobile(product.image01);
+    setProductImgMobile(product.images[0]);
     setQuantity(1);
     setColor(product.colors[0]);
     setSize(product.size[0]);
@@ -47,6 +47,14 @@ const ProductView = (props) => {
         return {
           backgroundColor: "#0e4d92",
         };
+      case "xanh đen":
+        return {
+          backgroundColor: "#0c2461",
+        };
+      case "xanh nhạt":
+        return {
+          backgroundColor: "#d6d6d6",
+        };
       case "xanh":
         return {
           backgroundColor: "#aec6cf",
@@ -58,6 +66,10 @@ const ProductView = (props) => {
       case "kem":
         return {
           backgroundColor: "#f8f2da",
+        };
+      case "vàng":
+        return {
+          backgroundColor: "#e8b828",
         };
       default:
         return {
@@ -84,18 +96,11 @@ const ProductView = (props) => {
     <div className="product-view">
       <div className="product__image">
         <nav className="product__image__list">
-          <div className="product__image__item">
-            <img src={product.image01} alt="image01" />
-          </div>
-          <div className="product__image__item">
-            <img src={product.image02} alt="image02" />
-          </div>
-          <div className="product__image__item">
-            <img src={product.image02} alt="image03" />
-          </div>
-          <div className="product__image__item">
-            <img src={product.image01} alt="image04" />
-          </div>
+          {product.images.map((item, index) => (
+            <div key={index} className="product__image__item">
+              <img src={item} alt={`image0${index + 1}`} />
+            </div>
+          ))}
         </nav>
 
         <nav className="product__image__list-mobile">
@@ -104,8 +109,15 @@ const ProductView = (props) => {
           </div>
 
           <div className="product__image__control-mobile">
-            <div className="dot active"></div>
-            <div className="dot"></div>
+            {product.images.map((item, index) => (
+              <div
+                key={index}
+                className={`${
+                  productImgMobile === item ? "dot active" : "dot"
+                }`}
+                onClick={() => setProductImgMobile(item)}
+              ></div>
+            ))}
           </div>
         </nav>
       </div>

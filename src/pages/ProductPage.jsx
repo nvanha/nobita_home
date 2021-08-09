@@ -9,11 +9,11 @@ import Section, {
 } from "./../components/Section/Section";
 import Grid from "./../components/Grid/Grid";
 import ProductCart from "./../components/ProductCard/ProductCard";
+import PageNot from "./../components/PageNot/PageNot";
 
 import { useDispatch, useSelector } from "react-redux";
 
 import * as Actions from "./../actions/index";
-import * as Config from "./../constants/Config";
 
 const ProductPage = (props) => {
   const product = useSelector((state) => state.productDetails);
@@ -27,13 +27,11 @@ const ProductPage = (props) => {
     dispatch(Actions.actGetProductsByQuantity(5));
   }, [dispatch, props]);
 
-  useEffect(() => {
-    if (product === null) {
-      props.history.push(`/${Config.HOME_PAGE}/collections/all`);
-    }
-  }, [product, props]);
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
 
-  return (
+  return product !== null ? (
     <Helmet title={product.name}>
       {/* Breadcrumb-shop */}
       <Breadcrumb
@@ -57,11 +55,11 @@ const ProductPage = (props) => {
                     {relateProducts.map((item, index) => (
                       <ProductCart
                         key={index}
-                        image01={item.image01}
-                        image02={item.image02}
+                        images={item.images}
                         name={item.name}
                         price={item.price}
                         slug={item.slug}
+                        onClick={() => scrollTop()}
                       />
                     ))}
                   </Grid>
@@ -71,6 +69,10 @@ const ProductPage = (props) => {
           </div>
         </div>
       </div>
+    </Helmet>
+  ) : (
+    <Helmet title="Không tìm thấy sản phẩm">
+      <PageNot title="Không tìm thấy sản phẩm" />
     </Helmet>
   );
 };

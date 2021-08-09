@@ -36,14 +36,13 @@ const HomePage = () => {
         <SectionBody>
           <div className="container">
             <Grid col={5} mdCol={3} smCol={2} gap={20}>
-              {products.map((product, index) => (
+              {products.map((item, index) => (
                 <ProductCard
                   key={index}
-                  image01={product.image01}
-                  image02={product.image02}
-                  name={product.name}
-                  price={product.price}
-                  slug={product.slug}
+                  images={item.images}
+                  name={item.name}
+                  price={item.price}
+                  slug={item.slug}
                 />
               ))}
             </Grid>

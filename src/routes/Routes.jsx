@@ -10,7 +10,7 @@ import * as Config from "./../constants/Config";
 
 const Routes = () => (
   <Switch>
-    <Route path={`/${Config.HOME_PAGE}/`} exact component={HomePage} />
+    <Route path={`/${Config.HOME_PAGE}`} exact component={HomePage} />
     <Route
       path={`/${Config.HOME_PAGE}/collections/:slug`}
       component={CollectionsPage}
@@ -19,7 +19,7 @@ const Routes = () => (
       path={`/${Config.HOME_PAGE}/products/:slug`}
       component={ProductPage}
     />
-    <Route path={`/${Config.HOME_PAGE}`} component={NotFoundPage} />
+    <Route path={``} component={NotFoundPage} />
   </Switch>
 );
 

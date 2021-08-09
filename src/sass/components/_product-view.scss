@@ -60,9 +60,11 @@
     &__item-mobile {
       width: 100%;
       height: 616px;
+      transition: all 150ms linear;
 
       @include responsive(767px) {
         height: 449px;
+        transition: all 150ms linear;
       }
 
       img {

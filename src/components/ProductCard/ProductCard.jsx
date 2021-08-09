@@ -10,15 +10,21 @@ const ProductCard = (props) => {
     <div className="product-card">
       <div className="product-card-inner">
         <div className="product-img">
-          <Link to={`/${Config.HOME_PAGE}/products/${props.slug}`}>
-            <img src={props.image01} alt={props.name} />
-            <img src={props.image02} alt={props.name} />
+          <Link
+            to={`/${Config.HOME_PAGE}/products/${props.slug}`}
+            onClick={props.onClick ? () => props.onClick() : null}
+          >
+            <img src={props.images[0]} alt={props.name} />
+            <img src={props.images[1]} alt={props.name} />
           </Link>
         </div>
 
         <div className="product-details">
           <h3 className="product-name">
-            <Link to={`/${Config.HOME_PAGE}/products/${props.slug}`}>
+            <Link
+              to={`/${Config.HOME_PAGE}/products/${props.slug}`}
+              onClick={props.onClick ? () => props.onClick() : null}
+            >
               {props.name}
             </Link>
           </h3>
@@ -32,11 +38,11 @@ const ProductCard = (props) => {
 };
 
 ProductCard.propTypes = {
-  image01: PropTypes.string.isRequired,
-  image02: PropTypes.string.isRequired,
+  images: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 };
 
 export default ProductCard;
