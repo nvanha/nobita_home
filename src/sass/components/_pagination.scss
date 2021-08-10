@@ -1,4 +1,9 @@
 .pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
   &-wrapper {
     text-align: center;
     position: relative;

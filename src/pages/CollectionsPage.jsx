@@ -64,7 +64,7 @@ const CollectionsPage = (props) => {
       case "all":
         return "Tất cả sản phẩm";
       default:
-        return "";
+        return "Không tìm thấy sản phẩm";
     }
   };
 
@@ -131,13 +131,14 @@ const CollectionsPage = (props) => {
     setCurrentPage(1);
     setPostsPerPage(12);
   }, [products]);
-
+  console.log(products);
   return (
     <Helmet title={titleHelmet()}>
       {/* Breadcrumb-shop */}
       <Breadcrumb breadcrumbRoot={"Danh mục"} breadcrumbChild={titleHelmet()} />
       {/* End Breadcrumb-shop */}
 
+      {/* Collections Content */}
       <div className="main-content">
         <div className="container">
           <div className="collection-body">
@@ -172,46 +173,59 @@ const CollectionsPage = (props) => {
               <div className="collection__content__heading">
                 <h2 className="collection__title">{titleHelmet()}</h2>
 
-                <div className="collection__filter">
-                  <span className="custom-dropdown">
-                    <select
-                      name="filter"
-                      value={filter}
-                      onChange={onChangeFilter}
-                    >
-                      <option value="nameAsc">Tên: A-Z</option>
-                      <option value="nameDesc">Tên: Z-A</option>
-                      <option value="priceAsc">Giá: Tăng dần</option>
-                      <option value="priceDesc">Giá: Giảm dần</option>
-                    </select>
-                  </span>
+                {products.length > 0 ? (
+                  <div className="collection__filter">
+                    <span className="custom-dropdown">
+                      <select
+                        name="filter"
+                        value={filter}
+                        onChange={onChangeFilter}
+                      >
+                        <option value="nameAsc">Tên: A-Z</option>
+                        <option value="nameDesc">Tên: Z-A</option>
+                        <option value="priceAsc">Giá: Tăng dần</option>
+                        <option value="priceDesc">Giá: Giảm dần</option>
+                      </select>
+                    </span>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+
+              {products.length > 0 ? (
+                <div className="collection__content__list">
+                  <Grid col={4} mdCol={3} smCol={2} gap={20}>
+                    {currentPosts.map((item, index) => (
+                      <ProductCard
+                        key={index}
+                        images={item.images}
+                        name={item.name}
+                        price={item.price}
+                        slug={item.slug}
+                      />
+                    ))}
+                  </Grid>
                 </div>
-              </div>
-
-              <div className="collection__content__list">
-                <Grid col={4} mdCol={3} smCol={2} gap={20}>
-                  {currentPosts.map((item, index) => (
-                    <ProductCard
-                      key={index}
-                      images={item.images}
-                      name={item.name}
-                      price={item.price}
-                      slug={item.slug}
-                    />
-                  ))}
-                </Grid>
-
-                <Pagination
-                  postsPerPage={postsPerPage}
-                  currentPage={currentPage}
-                  totalPosts={products.length}
-                  paginate={paginate}
-                />
-              </div>
+              ) : (
+                <p className="alert-empty-collections">
+                  Chưa có sản phẩm nào trong danh mục này
+                </p>
+              )}
             </div>
           </div>
         </div>
       </div>
+      {/* End Collections Content */}
+
+      {/* Pagnigation */}
+      <Pagination
+        postsPerPage={postsPerPage}
+        currentPage={currentPage}
+        totalPosts={products.length}
+        paginate={paginate}
+      />
+      {/* End Pagnigation */}
     </Helmet>
   );
 };

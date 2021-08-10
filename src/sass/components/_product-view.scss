@@ -209,7 +209,7 @@
             text-overflow: ellipsis;
             line-height: 1.9rem;
 
-            &:after {
+            &:before {
               content: "";
               position: absolute;
               width: 100%;
@@ -219,6 +219,27 @@
               left: 0;
               z-index: -1;
               opacity: 0.2;
+            }
+
+            &.active {
+              &:after {
+                content: "\f00c";
+                font-family: "FontAwesome";
+                position: absolute;
+                bottom: 0;
+                right: -4px;
+                height: 11px;
+                width: 11px;
+                background-color: green;
+                font-size: 0.9rem;
+                color: #fff;
+                border-radius: 100%;
+                @include flex(center, center);
+                overflow: hidden;
+                cursor: pointer;
+                opacity: 0.8;
+                z-index: 1;
+              }
             }
           }
         }

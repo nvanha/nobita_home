@@ -1,4 +1,6 @@
 .main-content {
+  padding-bottom: 81px;
+
   .collection-body {
     margin-right: -15px;
     margin-left: -15px;
@@ -117,6 +119,10 @@
       @include flex(center, space-between);
       margin: 50px -15px;
 
+      @include responsive(1199px) {
+        margin: 50px 0;
+      }
+
       @include responsive(991px) {
         margin: 20px 0;
       }
@@ -185,9 +191,15 @@
     &__list {
       margin: 0 -15px;
 
-      @include responsive(991px) {
+      @include responsive(1199px) {
         margin: 0;
       }
     }
+  }
+
+  .alert-empty-collections {
+    line-height: 2.1rem;
+    font-size: 1.4rem;
+    color: #252a2b;
   }
 }

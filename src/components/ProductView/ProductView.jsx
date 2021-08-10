@@ -14,11 +14,14 @@ const ProductView = (props) => {
 
   const [quantity, setQuantity] = useState(1);
 
+  const [discount, setDiscount] = useState(0);
+
   useEffect(() => {
     setProductImgMobile(product.images[0]);
     setQuantity(1);
     setColor(product.colors[0]);
     setSize(product.size[0]);
+    setDiscount(0);
   }, [product]);
 
   const convertColor = (color) => {
@@ -53,11 +56,23 @@ const ProductView = (props) => {
         };
       case "xanh nhạt":
         return {
-          backgroundColor: "#d6d6d6",
+          backgroundColor: "#4B5C6E",
+        };
+      case "xanh khói":
+        return {
+          backgroundColor: "#626167",
         };
       case "xanh":
         return {
           backgroundColor: "#aec6cf",
+        };
+      case "xám đậm":
+        return {
+          backgroundColor: "#6d6d6d",
+        };
+      case "xám nhạt":
+        return {
+          backgroundColor: "#6d6d6d",
         };
       case "xám":
         return {
@@ -88,7 +103,11 @@ const ProductView = (props) => {
 
   const addToCart = () => {
     alert(
-      `Add Products Successful\n- Name: ${product.name}\n- Color: ${color}\n- Size: ${size}\n- Quantity: ${quantity}\n\nThe Website is Developing!!!`
+      `Add Products Successful\n- Name: ${product.name}\n- Color: ${
+        color !== undefined ? color : ""
+      }\n- Size: ${size !== undefined ? size : ""}\n- Discount: ${
+        discount !== 0 ? discount + "%" : ""
+      }\n- Quantity: ${quantity}\n\nThe Website is Developing!!!`
     );
   };
 
@@ -136,13 +155,28 @@ const ProductView = (props) => {
             <div className="ega-promobox__label-wrapper">
               <div className="ega-promobox__mini-v-wrapper">
                 <div className="ega-promobox__mini-v">
-                  <span>Giảm 20%</span>
+                  <span
+                    className={`${discount === 20 ? "active" : ""}`}
+                    onClick={() => setDiscount(20)}
+                  >
+                    Giảm 20%
+                  </span>
                 </div>
                 <div className="ega-promobox__mini-v">
-                  <span>Giảm 15%</span>
+                  <span
+                    className={`${discount === 15 ? "active" : ""}`}
+                    onClick={() => setDiscount(15)}
+                  >
+                    Giảm 15%
+                  </span>
                 </div>
                 <div className="ega-promobox__mini-v">
-                  <span>Giảm 10%</span>
+                  <span
+                    className={`${discount === 10 ? "active" : ""}`}
+                    onClick={() => setDiscount(10)}
+                  >
+                    Giảm 10%
+                  </span>
                 </div>
               </div>
             </div>

@@ -7,13 +7,11 @@ const Pagination = ({ postsPerPage, currentPage, totalPosts, paginate }) => {
   const pageMax = Math.ceil(totalPosts / postsPerPage);
 
   for (let i = 1; i <= pageMax; i++) {
-    if (i === pageMax) {
+    if (i === pageMax && pageMax > 1) {
       pageNumbers.push(0);
     }
     pageNumbers.push(i);
   }
-
-  console.log(pageNumbers);
 
   return (
     <div className="pagination">

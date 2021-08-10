@@ -14,8 +14,12 @@
       height: 391px;
     }
 
-    @include responsive(1024px) {
-      height: 317px;
+    @include responsive(1023px) {
+      height: 485px;
+    }
+
+    @include responsive(991px) {
+      height: 684px;
     }
 
     @include responsive(768px) {
