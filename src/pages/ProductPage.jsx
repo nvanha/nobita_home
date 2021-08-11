@@ -31,6 +31,10 @@ const ProductPage = (props) => {
     window.scrollTo(0, 0);
   };
 
+  const addToCart = (product, details) => {
+    dispatch(Actions.actAddToCart(product, details));
+  };
+
   return product !== null ? (
     <Helmet title={product.name}>
       {/* Breadcrumb-shop */}
@@ -44,7 +48,10 @@ const ProductPage = (props) => {
         <div className="container">
           <div className="product-details-inner">
             <div className="product-details-inner-wrap">
-              <ProductView product={product} />
+              <ProductView
+                product={product}
+                addToCart={(product, details) => addToCart(product, details)}
+              />
 
               <Section>
                 <SectionTitle>

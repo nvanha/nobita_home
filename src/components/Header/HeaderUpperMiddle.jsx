@@ -7,6 +7,9 @@ import Button from "./../Button/Button";
 import logo from "./../../assets/images/logo/logo.png";
 
 import * as Config from "./../../constants/Config";
+import * as Actions from "./../../actions/index";
+
+import { useDispatch, useSelector } from "react-redux";
 
 const phone = [
   {
@@ -27,6 +30,94 @@ const email = [
 ];
 
 const HeaderUpperMiddle = (props) => {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
+  const subTotal = () => {
+    return cart.reduce(
+      (total, item) => total + item.details.quantity * item.product.price,
+      0
+    );
+  };
+
+  const onDelete = (index) => {
+    dispatch(Actions.actDeleteProductInCart(cart[index]));
+  };
+
+  const showCartList = () => {
+    if (cart.length > 0) {
+      return (
+        <div className="cart-list">
+          {cart.map((item, index) => (
+            <div key={index} className="cart-item">
+              <div className="cart-item--img">
+                <Link to={item.product.slug}>
+                  <img src={item.product.images[0]} alt="img" />
+                </Link>
+              </div>
+              <div className="cart-item--details">
+                <p className="pro-title">
+                  <Link to={item.product.slug}>{item.product.name}</Link>
+                  <span>
+                    {item.details.color} / {item.details.size}
+                  </span>
+                </p>
+                <div className="mini-cart_quantity">
+                  <div className="pro-quantity-view">
+                    {item.details.quantity}
+                  </div>
+                  <div className="pro-price-view">
+                    {new Intl.NumberFormat().format(
+                      item.details.quantity * item.product.price
+                    )}
+                    ₫
+                  </div>
+                </div>
+              </div>
+              <div className="remove-cart">
+                <span onClick={() => onDelete(index)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    viewBox="0 0 1000 1000"
+                    enableBackground="new 0 0 1000 1000"
+                  >
+                    {" "}
+                    <g>
+                      <path d="M500,442.7L79.3,22.6C63.4,6.7,37.7,6.7,21.9,22.5C6.1,38.3,6.1,64,22,79.9L442.6,500L22,920.1C6,936,6.1,961.6,21.9,977.5c15.8,15.8,41.6,15.8,57.4-0.1L500,557.3l420.7,420.1c16,15.9,41.6,15.9,57.4,0.1c15.8-15.8,15.8-41.5-0.1-57.4L557.4,500L978,79.9c16-15.9,15.9-41.5,0.1-57.4c-15.8-15.8-41.6-15.8-57.4,0.1L500,442.7L500,442.7z"></path>
+                    </g>{" "}
+                  </svg>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className="item-cart_empty">
+          <div className="svgico-mini-cart">
+            <svg width="81" height="70" viewBox="0 0 81 70">
+              <g
+                transform="translate(0 2)"
+                strokeWidth="4"
+                stroke="#1e2d7d"
+                fill="none"
+                fillRule="evenodd"
+              >
+                <circle strokeLinecap="square" cx="34" cy="60" r="6"></circle>
+                <circle strokeLinecap="square" cx="67" cy="60" r="6"></circle>
+                <path d="M22.9360352 15h54.8070373l-4.3391876 30H30.3387146L19.6676025 0H.99560547"></path>
+              </g>
+            </svg>
+          </div>
+          <p>Hiện chưa có sản phẩm</p>
+        </div>
+      );
+    }
+  };
+
   const { mainNav } = props;
 
   const dropdownSearchRef = useRef(null);
@@ -372,36 +463,7 @@ const HeaderUpperMiddle = (props) => {
                         <p>Giỏ hàng</p>
                       </div>
                       <div className="cart-view">
-                        <div className="cart-view-scroll">
-                          <div className="item-cart_empty">
-                            <div className="svgico-mini-cart">
-                              <svg width="81" height="70" viewBox="0 0 81 70">
-                                <g
-                                  transform="translate(0 2)"
-                                  strokeWidth="4"
-                                  stroke="#1e2d7d"
-                                  fill="none"
-                                  fillRule="evenodd"
-                                >
-                                  <circle
-                                    strokeLinecap="square"
-                                    cx="34"
-                                    cy="60"
-                                    r="6"
-                                  ></circle>
-                                  <circle
-                                    strokeLinecap="square"
-                                    cx="67"
-                                    cy="60"
-                                    r="6"
-                                  ></circle>
-                                  <path d="M22.9360352 15h54.8070373l-4.3391876 30H30.3387146L19.6676025 0H.99560547"></path>
-                                </g>
-                              </svg>
-                            </div>
-                            <p>Hiện chưa có sản phẩm</p>
-                          </div>
-                        </div>
+                        <div className="cart-view-scroll">{showCartList()}</div>
                         <div className="line"></div>
                         <div className="cart-view-total">
                           <div className="cart-view-total-row">
@@ -412,7 +474,7 @@ const HeaderUpperMiddle = (props) => {
                               id="total-view-cart"
                               className="cart-view-total-col pr-0"
                             >
-                              0đ
+                              {new Intl.NumberFormat().format(subTotal())}đ
                             </div>
                           </div>
                           <div className="cart-view-total-row">

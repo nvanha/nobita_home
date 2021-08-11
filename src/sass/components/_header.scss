@@ -554,8 +554,112 @@
                 .cart-view {
                   &-scroll {
                     padding: 0 20px;
+                    max-height: 320px;
+                    overflow-y: scroll;
+
+                    @include responsive(991px) {
+                      max-height: 100%;
+                    }
+
+                    .cart-list {
+                      width: 100%;
+
+                      .cart-item {
+                        position: relative;
+                        @include flex(center);
+
+                        &:not(:last-child) {
+                          border-bottom: 1px dotted #bcbcbc;
+                        }
+
+                        &--img {
+                          padding: 10px;
+                          position: relative;
+
+                          img {
+                            width: 65px;
+                            border: 1px solid #ededed;
+                          }
+                        }
+
+                        &--details {
+                          padding: 10px;
+                          flex: 1;
+                          position: relative;
+
+                          .pro-title {
+                            padding-right: 30px;
+                            margin-bottom: 10px;
+                            line-height: 2.1rem;
+
+                            a {
+                              font-size: 1.2rem;
+                              font-weight: 700;
+                              text-transform: uppercase;
+                              color: #252a2b;
+                              transition: color 150ms linear;
+
+                              &:hover {
+                                color: #cfb997;
+                              }
+                            }
+
+                            span {
+                              font-size: 1.2rem;
+                              display: block;
+                              width: 100%;
+                              text-transform: uppercase;
+                            }
+                          }
+
+                          .mini-cart_quantity {
+                            margin-top: 4px;
+                            width: 100%;
+                            @include flex(center, space-between);
+
+                            .pro-quantity-view {
+                              padding: 0 3px;
+                              height: 23px;
+                              line-height: 2.3rem;
+                              min-width: 25px;
+                              text-align: center;
+                              background-color: #f5f5f5;
+                              font-size: 1.3rem;
+                              font-weight: 500;
+                              border-radius: 3px;
+                              box-shadow: 0 1px 1px var(--color-shadow-btn-20);
+                            }
+
+                            .pro-price-view {
+                              font-size: 1.3rem;
+                              line-height: 1.8rem;
+                              font-weight: 700;
+                              color: #333;
+                            }
+                          }
+                        }
+                        .remove-cart {
+                          position: absolute;
+                          top: 10px;
+                          right: 10px;
+                          width: 20px;
+                          height: 20px;
+                          line-height: 20px;
+                          text-align: center;
+                          background-color: #e7ebec;
+                          cursor: pointer;
+
+                          svg {
+                            height: 20px;
+                            width: 8px;
+                            fill: #000;
+                          }
+                        }
+                      }
+                    }
 
                     .item-cart_empty {
+                      display: none;
                       padding-right: 10px;
                       padding-left: 10px;
 

@@ -31,3 +31,15 @@ export const actGetProductBySlug = (slug) => ({
   products: productData,
   slug,
 });
+
+// Cart
+export const actAddToCart = (product, details) => ({
+  type: Types.ADD_TO_CART,
+  product,
+  details,
+});
+
+export const actDeleteProductInCart = (item) => ({
+  type: Types.DELETE_PRODUCT_IN_CART,
+  item,
+});

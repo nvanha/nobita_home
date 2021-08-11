@@ -131,7 +131,7 @@ const CollectionsPage = (props) => {
     setCurrentPage(1);
     setPostsPerPage(12);
   }, [products]);
-  console.log(products);
+
   return (
     <Helmet title={titleHelmet()}>
       {/* Breadcrumb-shop */}

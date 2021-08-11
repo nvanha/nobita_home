@@ -102,13 +102,17 @@ const ProductView = (props) => {
   };
 
   const addToCart = () => {
-    alert(
-      `Add Products Successful\n- Name: ${product.name}\n- Color: ${
-        color !== undefined ? color : ""
-      }\n- Size: ${size !== undefined ? size : ""}\n- Discount: ${
-        discount !== 0 ? discount + "%" : ""
-      }\n- Quantity: ${quantity}\n\nThe Website is Developing!!!`
-    );
+    const details = {
+      color: color !== undefined ? color : "",
+      size: size !== undefined ? size : "",
+      discount,
+      quantity,
+    };
+    props.addToCart(product, details);
+    setQuantity(1);
+    setColor(product.colors[0]);
+    setSize(product.size[0]);
+    setDiscount(0);
   };
 
   return (
@@ -267,6 +271,7 @@ const ProductView = (props) => {
 
 ProductView.propTypes = {
   product: PropTypes.object.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductView;
