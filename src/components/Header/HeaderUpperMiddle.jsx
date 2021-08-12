@@ -422,7 +422,7 @@ const HeaderUpperMiddle = (props) => {
                         <div className="site_account_secondary-action">
                           <p>
                             Khách hàng mới?{" "}
-                            <Link to={`/${Config.HOME_PAGE}`}>
+                            <Link to={`/${Config.HOME_PAGE}/account/register`}>
                               Tạo tài khoản
                             </Link>
                           </p>
